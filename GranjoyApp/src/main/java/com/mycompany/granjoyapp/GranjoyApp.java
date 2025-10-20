@@ -56,13 +56,12 @@ public class GranjoyApp extends JFrame {
         add(tabs);
     }
 
-    // ============================================================
+    
     // PANEL DE ANIMALES
-    // ============================================================
     private JPanel buildAnimalsPanel() {
         JPanel panel = new JPanel(new BorderLayout());
 
-        // ---------- Formulario de registro de animales ----------
+        // Formulario de registro de animales 
         JPanel form = new JPanel(new GridBagLayout());
         form.setBorder(BorderFactory.createTitledBorder("Registrar Animal"));
         GridBagConstraints c = new GridBagConstraints();
@@ -94,7 +93,7 @@ public class GranjoyApp extends JFrame {
         JPanel top = new JPanel(new BorderLayout());
         top.add(form, BorderLayout.WEST);
 
-        // ---------- Panel de búsqueda ----------
+        // Panel de búsqueda 
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         searchPanel.setBorder(BorderFactory.createTitledBorder("Buscar / Filtrar"));
         searchPanel.add(new JLabel("Texto:"));
@@ -108,7 +107,7 @@ public class GranjoyApp extends JFrame {
 
         panel.add(top, BorderLayout.NORTH);
 
-        // ---------- Tabla de animales ----------
+        // Tabla de animales 
         String[] cols = {"ID","Especie","Nombre","Edad","Peso(kg)","Salud","Ingreso","Costo"};
         animalsTableModel = new DefaultTableModel(cols, 0){
             public boolean isCellEditable(int r,int c){return false;}
@@ -117,7 +116,7 @@ public class GranjoyApp extends JFrame {
         refreshAnimalsTable();
         panel.add(new JScrollPane(animalsTable), BorderLayout.CENTER);
 
-        // ---------- Botones de acción ----------
+        //  Botones de acción 
         JPanel actions = new JPanel();
         actions.setLayout(new BoxLayout(actions, BoxLayout.Y_AXIS));
         JButton deleteBtn = new JButton("Eliminar animal");
@@ -136,7 +135,7 @@ public class GranjoyApp extends JFrame {
         actions.add(sellBtn);
         panel.add(actions, BorderLayout.EAST);
 
-        // ---------- Eventos ----------
+        //  Eventos 
         addBtn.addActionListener(e -> {
             String species = speciesField.getText().trim();
             String name = nameField.getText().trim();
@@ -217,9 +216,7 @@ public class GranjoyApp extends JFrame {
         return panel;
     }
 
-    // ============================================================
     // PANEL DE INVENTARIO
-    // ============================================================
     private JPanel buildInventoryPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         JPanel form = new JPanel(new GridBagLayout());
@@ -288,9 +285,7 @@ public class GranjoyApp extends JFrame {
         return panel;
     }
 
-    // ============================================================
     // PANEL DE REGISTROS
-    // ============================================================
     private JPanel buildLogsPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         String[] cols = {"Fecha","AnimalID","Acción","Detalle"};
@@ -322,9 +317,7 @@ public class GranjoyApp extends JFrame {
         return panel;
     }
 
-    // ============================================================
     // PANEL DE FINANZAS
-    // ============================================================
     private JPanel buildFinancePanel() {
         JPanel panel = new JPanel(new BorderLayout());
         JPanel sums = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -340,7 +333,6 @@ public class GranjoyApp extends JFrame {
     }
 
     // FUNCIONES AUXILIARES
-
     private void loadAllData() {
         loadAnimals();
         loadInventory();
@@ -483,7 +475,6 @@ public class GranjoyApp extends JFrame {
     }
 
        // CLASES INTERNAS (MODELOS DE DATOS)
-   
     static class Animal {
         String id, species, name, health, entryDate;
         int age;
@@ -505,8 +496,7 @@ public class GranjoyApp extends JFrame {
     }
 
        // MÉTODO PRINCIPAL
-   
-    public static void main(String[] args) {
+      public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new GranjoyApp().setVisible(true));
     }
 }
