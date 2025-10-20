@@ -1,10 +1,5 @@
 package com.mycompany.granjoyapp;
 
-// GranjoyApp.java
-// Sistema de gestión de granja "Granjoy"
-// Interfaz gráfica (Swing) + archivos locales (CSV)
-// Versión completamente comentada en español
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
